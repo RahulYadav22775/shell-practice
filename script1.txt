@@ -1,0 +1,3 @@
+#!/bin/bash
+
+Hi i am learning devops
