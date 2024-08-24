@@ -10,4 +10,4 @@ echo " third fruit is  : ${FRUITS[2]} "
 
 echo " fourth fruit is  : ${FRUITS[3]} "
 
-echo " all fruits list  : ${FRUITS{@}} "
+echo " all fruits list  : ${FRUITS[@]} "
