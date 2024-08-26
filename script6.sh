@@ -9,7 +9,7 @@
 
  if [ $USERID -ne 0 ]
  then 
- echo " $R you are not a root user to execute the script $N "
+ echo -e " $R you are not a root user to execute the script $N "
  exit 1
  fi
 
@@ -19,7 +19,7 @@ if [ $? -ne 0 ]
 then
     echo " mysql is not installed "
 else
-    echo " $G mysql is already installed $N "
+    echo  -e" $G mysql is already installed $N "
     exit 1
 fi    
 
@@ -30,5 +30,5 @@ then
     echo "mysql istallation is not success "
     exit 1
 else
-    echo " $G mysql is successfully installed $N "
+    echo  -e " $G mysql is successfully installed $N "
 fi    
