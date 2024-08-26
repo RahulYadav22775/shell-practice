@@ -20,7 +20,7 @@ if [ $? -ne 0 ]
 then
     echo " mysql is not installed "
 else
-    echo  -e" $B mysql is already installed $N "
+    echo  -e " $B mysql is already installed $N "
     exit 1
 fi    
 
