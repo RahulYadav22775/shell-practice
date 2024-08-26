@@ -5,6 +5,7 @@
  R=$"\e[31m"
  G=$"\e[32m"
  N=$"\e[0m"
+ B=$"\e[33m"
 
 
  if [ $USERID -ne 0 ]
@@ -19,7 +20,7 @@ if [ $? -ne 0 ]
 then
     echo " mysql is not installed "
 else
-    echo  -e" $G mysql is already installed $N "
+    echo  -e" $B mysql is already installed $N "
     exit 1
 fi    
 
