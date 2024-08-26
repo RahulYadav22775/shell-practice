@@ -41,6 +41,7 @@ then
     echo " git is not installed "
 else 
     echo  -e " $G git is already installed $N "
+exit 1
 fi
 
 dnf install git -y
