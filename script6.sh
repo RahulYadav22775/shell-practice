@@ -1,4 +1,7 @@
 #!/bin/bash
- DATE=$(date +%F)
+ 
+ NUMBER1=$1
+ NUMBER2=$2
 
- echo "today date is : ${DATE} "
+ SUM=$(($NUMBER1+$NUMBER2))
+ echo " sum of  $NUMBER & $NUMBER2 IS : $SUM "
