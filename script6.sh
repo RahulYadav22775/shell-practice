@@ -14,8 +14,11 @@
 
  echo " process id of the current script : $$ "
 
+ sleep 10 &
+
  echo " process id of the previous script : $! "
 
  echo " present workig directory : $PWD "
+
 
  echo " present user home directory : $HOME "
