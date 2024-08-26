@@ -14,8 +14,8 @@
 
  echo " process id of the current script : $$ "
 
- ls -la
- 
+ echo "hello"
+
 
  echo " process id of the previous script : $! "
 
