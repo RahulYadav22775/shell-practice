@@ -1,25 +1,10 @@
 #!/bin/bash
  
- NUMBER1=$1
- NUMBER2=$2
+ NUMBER=$1
 
- SUM=$(($NUMBER1+$NUMBER2))
- echo " sum of  $NUMBER1 & $NUMBER2 is : $SUM "
-
- echo " all the arguments/inputs : $@ "
- 
- echo " total number of arguments : $# "
-
- echo " name of the script : $0 "
-
- echo " process id of the current script : $$ "
-
- sleep 30 &
-
-
- echo " process id of the previous script : $! "
-
- echo " present workig directory : $PWD "
-
-
- echo " present user home directory : $HOME "
+ if [ $NUMBER -gt 20 ] 
+    then
+    echo " print $NUMBER is gtreater than 20 "
+    else
+    echo "print $NUMBER  is less than 20"   
+fi
