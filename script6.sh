@@ -14,7 +14,7 @@
 
  echo " process id of the current script : $$ "
 
- echo "hello"
+ sleep 30 &
 
 
  echo " process id of the previous script : $! "
