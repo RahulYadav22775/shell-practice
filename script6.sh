@@ -27,13 +27,8 @@ CHECKROOT() {
     fi
 }
 
-# if [ $USERID -ne 0 ]
-# then 
-#     echo  -e " $R you are not root user to execute this script $N "
-#     exit 1
-# fi
 
-CHECKROOT()
+CHECKROOT
 
 dnf list installed mysql
 
@@ -43,7 +38,7 @@ then
 
     dnf install mysql -y
 
-    VALIDATE() $? "mysql"
+    VALIDATE $? "mysql"
 else 
     echo -e " $G mysql is installed $N "
     
@@ -57,7 +52,7 @@ fi
 # else 
 #     echo -e " $G mysql is installed $N "
 # fi
- CHECKROOT()
+ CHECKROOT
 
 
  dnf list installed nginx
