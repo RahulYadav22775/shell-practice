@@ -1,6 +1,6 @@
-$!/bin/bash
+#!/bin/bash
 
 for i in {0..10}
 do 
-  echo " numbers : $i "
+  echo  $i 
 done
