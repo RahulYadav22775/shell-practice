@@ -29,6 +29,17 @@ then
     exit 1
 fi
 
+
+VALIDATE(){
+    if [ $1 -ne 0 ]
+      then
+          echo  -e " $R $2 installation failed $N " | tee -a >>$LOG_FILE
+          exit 1
+      else
+          echo -e " $G $2 installation is success $N " | tee -a >>$LOG_FILE
+      fi
+}
+
 #For loop used to install multiple packages
 for package in $@
 do
@@ -38,15 +49,11 @@ do
       echo  -e " $Y $package is not installed ...install it $N " | tee -a >>$LOG_FILE
 
       dnf install $package -y &>>$LOG_FILE
-      if [ $? -ne 0 ]
-      then
-          echo  -e " $R $package installation failed $N " | tee -a >>$LOG_FILE
-      else
-          echo -e " $G $package installation is success $N " | tee -a >>$LOG_FILE
-      fi
+      VALIDATE $? $package
   else 
       echo -e  " $G $package is already installed $N  " | tee -a >>$LOG_FILE
   fi
 done
+
 
 
