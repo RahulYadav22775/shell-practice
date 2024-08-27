@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOG_FOLDER="/var/log/shell-script/"
-SCRIPT_NAME= $(echo $0 | awk -F "." '{print $1F}')
+SCRIPT_NAME= $((echo $0 | cut -d "." -f1))
 TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 
@@ -18,7 +18,7 @@ USERID=$(id -u)
 #Checks arguments provided or not
 if [ $# -eq 0 ]
 then 
-   echo "  $USAGE : $Y please enter arguments/inputs to execute this script $N " | tee -a >>$LOG_FILE
+   echo "  USAGE : $Y please enter arguments/inputs to execute this script $N " | tee -a >>$LOG_FILE
    exit 1
 fi
 
