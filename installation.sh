@@ -61,5 +61,11 @@ VALIDATE $? "enabling mysql-server"
 systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "starting mysql-server"
 
+systemctl status mysqld &>>$LOG_FILE
+VALIDATE $? "status of  mysql-server"
+
+
+
+
 
 
