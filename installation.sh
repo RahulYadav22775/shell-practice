@@ -64,7 +64,7 @@ VALIDATE $? "starting mysql-server"
 systemctl status mysqld &>>$LOG_FILE
 VALIDATE $? "status of  mysql-server"
 
-mysql -h 172.31.88.192 -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
+mysql -h 172.31.88.192 -uroot -pExpenseApp@1 -e 'show databases;' | tee -a  &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
     echo " $Y password is not set up $N " | tee -a >>$LOG_FILE
