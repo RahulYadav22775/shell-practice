@@ -61,7 +61,7 @@ if [ $? -ne 0 ]
 then 
     echo  -e " $Y nginx is not installed ..installing $N "
 
-    dnf install mysql -y
+    dnf install nginx -y
 
     VALIDATE $? "nginx"
 else 
