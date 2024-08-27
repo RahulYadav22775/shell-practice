@@ -14,14 +14,14 @@ then
    exit 1
 fi
 
-# VALIDATE() {
-#     if [ $1 -ne 0 ]
-#     then
-#         echo " $R $2 installation failed $N "
-#     else
-#         echo " $G $2 is installed $N "
-#     fi
-# }
+VALIDATE() {
+    if [ $1 -ne 0 ]
+    then
+        echo " $R $2 installation failed $N "
+    else
+        echo " $G $2 is installed $N "
+    fi
+}
 
 # dnf list installed mysql
 
@@ -46,12 +46,7 @@ do
     
       dnf install $i -y
 
-      if [ $? -ne 0 ]
-      then 
-          echo -e "  $R $i installation failed $N "
-      else 
-          echo -e " $G $i installation is success $N "
-      fi
+      VALIDATE $? $i
 
    else
       echo -e " $Y $i is already installed $N "
