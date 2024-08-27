@@ -63,7 +63,7 @@ then
 
     dnf install mysql -y
 
-    VALIDATE() $? "nginx"
+    VALIDATE $? "nginx"
 else 
     echo -e " $G nginx is installed $N "
     exit 1
