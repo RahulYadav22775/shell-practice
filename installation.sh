@@ -18,14 +18,14 @@ USERID=$(id -u)
 #Checks arguments provided or not
 if [ $# -eq 0 ]
 then 
-   echo "  USAGE : $Y please enter arguments/inputs to execute this script $N " | tee -a >>$LOG_FILE
+   echo  -e "  USAGE : $Y please enter arguments/inputs to execute this script $N " | tee -a >>$LOG_FILE
    exit 1
 fi
 
 #checks whether root user or not
 if [ $USERID -ne 0 ]
 then 
-    echo " $R you need to have root access to execute this script $N " | tee -a >>$LOG_FILE
+    echo -e  " $R you need to have root access to execute this script $N " | tee -a >>$LOG_FILE
     exit 1
 fi
 
@@ -35,16 +35,16 @@ do
   dnf list installed $package &>>$LOG_FILE
   if [ $? -ne 0 ]
   then
-      echo " $Y $package is not installed ...install it $N " | tee -a >>$LOG_FILE
+      echo  -e " $Y $package is not installed ...install it $N " | tee -a >>$LOG_FILE
 
       dnf install $package -y &>>$LOG_FILE
       if [ $? -ne 0 ]
       then
-          echo " $R $package installation failed $N " | tee -a >>$LOG_FILE
+          echo  -e " $R $package installation failed $N " | tee -a >>$LOG_FILE
       else
-          echo " $G $package installation is success $N " | tee -a >>$LOG_FILE
+          echo -e " $G $package installation is success $N " | tee -a >>$LOG_FILE
   else 
-      echo " $G $package is already installed $N  " | tee -a >>$LOG_FILE
+      echo -e  " $G $package is already installed $N  " | tee -a >>$LOG_FILE
   fi
 
 
