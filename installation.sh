@@ -33,10 +33,10 @@ fi
 VALIDATE(){
     if [ $1 -ne 0 ]
       then
-          echo  -e " $R $2 installation failed $N " | tee -a >>$LOG_FILE
+          echo  -e " $R $2  failed $N " | tee -a >>$LOG_FILE
           exit 1
       else
-          echo -e " $G $2 installation is success $N " | tee -a >>$LOG_FILE
+          echo -e " $G $2  is success $N " | tee -a >>$LOG_FILE
       fi
 }
 
@@ -49,11 +49,17 @@ do
       echo  -e " $Y $package is not installed ...install it $N " | tee -a >>$LOG_FILE
 
       dnf install $package -y &>>$LOG_FILE
-      VALIDATE $? $package
+      VALIDATE $? "installing $package"
   else 
       echo -e  " $G $package is already installed $N  " | tee -a >>$LOG_FILE
   fi
 done
+
+systemctl enable mysql-server
+VALIDATE $? "enabling mysql-server"
+
+systemctl start mysql-server
+VALIDATE $? "starting mysql-server"
 
 
 
