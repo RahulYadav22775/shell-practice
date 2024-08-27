@@ -18,13 +18,13 @@ VALIDATE() {
 
 }
 
-CHECK-ROOT(){
+CHECK-ROOT() {
 
     if [ $USERID -ne 0 ]
-then 
-    echo  -e " $R you are not root user to execute this script $N "
-    exit 1
-fi
+    then 
+        echo  -e " $R you are not root user to execute this script $N "
+        exit 1
+    fi
 }
 
 # if [ $USERID -ne 0 ]
