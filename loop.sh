@@ -10,7 +10,7 @@ N=$"\e[0m"
 
 if [ $USERID -ne 0 ]
 then 
-   echo " $R You are not a root user $N "
+   echo  -e " $R You are not a root user $N "
    exit 1
 fi
 
@@ -42,19 +42,19 @@ do
 
   if [ $? -ne 0]
   then
-      echo " $Y $i is not installed..INSTALLING  $N "
+      echo -e  " $Y $i is not installed..INSTALLING  $N "
     
       dnf install $i -y
 
       if [ $? -ne 0 ]
       then 
-          echo "  $R $i installation failed $N "
+          echo -e "  $R $i installation failed $N "
       else 
-          echo " $G $i installation is success $N "
+          echo -e " $G $i installation is success $N "
       fi
 
    else
-      echo " $Y $i is already installed $N "
+      echo -e " $Y $i is already installed $N "
    fi
 done
    
