@@ -17,20 +17,29 @@ dnf list installed mysql
 
 if [ $? -ne 0 ]
 then 
-    echo  -e " $Y mysql is not installed $N "
+    echo  -e " $Y mysql is not installed ..installing $N "
+
+    dnf install mysql -y
+
+    if [ $? -ne 0 ]
+    then 
+        echo -e " $R mysql is not installed $N " 
+    else 
+        echo -e " $G mysql is installed $N "
+    fi
 else 
     echo -e " $G mysql is installed $N "
     exit 1
 fi
 
-dnf install mysql -y
+# dnf install mysql -y
 
-if [ $? -ne 0 ]
-then 
-    echo -e " $R mysql is not installed $N " 
-else 
-    echo -e " $G mysql is installed $N "
-fi
+# if [ $? -ne 0 ]
+# then 
+#     echo -e " $R mysql is not installed $N " 
+# else 
+#     echo -e " $G mysql is installed $N "
+# fi
 
 
  
