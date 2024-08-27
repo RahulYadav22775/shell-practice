@@ -40,7 +40,7 @@ for i in $@
 do 
   dnf list installed $i
 
-  if [ $? -ne 0]
+  if [ $? -ne 0 ]
   then
       echo -e  " $Y $i is not installed..INSTALLING  $N "
     
