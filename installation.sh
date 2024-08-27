@@ -43,6 +43,7 @@ do
           echo  -e " $R $package installation failed $N " | tee -a >>$LOG_FILE
       else
           echo -e " $G $package installation is success $N " | tee -a >>$LOG_FILE
+      fi
   else 
       echo -e  " $G $package is already installed $N  " | tee -a >>$LOG_FILE
   fi
