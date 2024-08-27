@@ -18,7 +18,7 @@ VALIDATE() {
 
 }
 
-CHECK-ROOT() {
+CHECKROOT() {
 
     if [ $USERID -ne 0 ]
     then 
@@ -33,7 +33,7 @@ CHECK-ROOT() {
 #     exit 1
 # fi
 
-CHECK-ROOT()
+CHECKROOT()
 
 dnf list installed mysql
 
@@ -57,8 +57,8 @@ fi
 # else 
 #     echo -e " $G mysql is installed $N "
 # fi
+ CHECKROOT()
 
-CHECK-ROOT()
 
  dnf list installed nginx
 
