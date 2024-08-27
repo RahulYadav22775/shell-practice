@@ -55,10 +55,10 @@ do
   fi
 done
 
-systemctl enable mysql-server &>>$LOG_FILE
+systemctl enable mysqld &>>$LOG_FILE
 VALIDATE $? "enabling mysql-server"
 
-systemctl start mysql-server &>>$LOG_FILE
+systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "starting mysql-server"
 
 
