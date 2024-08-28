@@ -75,7 +75,7 @@ VALIDATE $? " backend service starting "
 systemctl status backend &>>$LOG_FILE
 VALIDATE $? " bacakend service status "
 
-mysql -h <ip address of  database> -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
+mysql -h  172.31.86.130 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
 VALIDATE $? " adding of databases "
 
 dnf list installed mysql &>>$LOG_FILE
