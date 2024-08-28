@@ -61,7 +61,7 @@ VALIDATE $? " download "
 cd /usr/share/nginx/html &>>$LOG_FILE
 VALIDATE $? " changing directory "
 
-unzip unzip /tmp/frontend.zip &>>$LOG_FILE
+ unzip /tmp/frontend.zip &>>$LOG_FILE
 
 cp  /home/ec2-user/repos/shell-practice/frontend.conf /etc/nginx/default.d/frontend.conf &>>$LOG_FILE
 VALIDATE $? " copying files "
