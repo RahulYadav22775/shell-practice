@@ -41,11 +41,11 @@ else
 
 fi
 
-systemctl enable mysqld &>>$LOG_FILE
-VALIDATE $? " mysql server enable "
-
 systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "mysql server starting "
+
+systemctl enable mysqld &>>$LOG_FILE
+VALIDATE $? " mysql server enable "
 
 systemctl status mysqld &>>$LOG_FILE
 VALIDATE $? "mysql server status "
