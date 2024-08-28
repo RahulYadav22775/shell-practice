@@ -20,7 +20,7 @@ VALIDATE() {
     fi
 }
 
-
+mkdir -p $LOG_FOLDER
 
 if [ $USERID -ne 0 ]
 then 
@@ -28,7 +28,7 @@ then
     exit 1
 fi
 
-mkdir -p $LOG_FOLDER
+
 
 dnf module list nodejs &>>$LOG_FILE
 VALIDATE $? " nodejs versions list "

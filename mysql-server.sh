@@ -22,7 +22,7 @@ VALIDATE() {
     fi
 }
 
-
+mkdir -p $LOG_FOLDER
 
 if [ $USERID -ne 0 ]
 then 
@@ -30,7 +30,6 @@ then
     exit 1
 fi
 
-mkdir -p $LOG_FOLDER
 
 dnf list installed mysql-server &>>$LOG_FILE
 if [ $? -ne 0 ]
