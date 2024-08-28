@@ -30,7 +30,39 @@ then
     exit 1
 fi
 
-dnf list installed nginx
+dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
-    echo -e ""
+    echo -e " Nginx is not $Y installed...installing $N " |tee -a >>$LOG_FILE
+     dnf install nginx -y &>>$LOG_FILE
+     VALIDATE $? " nginx installation "
+else
+    echo -e " nginx is already $G installed $N " |tee -a >>$LOG_FILE
+fi
+
+systemctl enable nginx &>>$LOG_FILE
+VALIDATE $? " nginx enable "
+
+systemctl start nginx &>>$LOG_FILE
+VALIDATE $? " startig of "
+
+systemctl status nginx &>>$LOG_FILE
+VALIDATE $? " nginx status "
+
+rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
+VALIDATE $? " all files removal "
+
+cd /
+
+curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE
+VALIDATE $? " download "
+
+cd /usr/share/nginx/html &>>$LOG_FILE
+VALIDATE $? " changing directory "
+
+unzip unzip /tmp/frontend.zip &>>$LOG_FILE
+
+cp  /home/ec2-user/repos/shell-practice/frontend.conf /etc/nginx/default.d/frontend.conf &>>$LOG_FILE
+VALIDATE $? " copying files "
+
+systemctl restart nginx &>>$LOG_FILE
