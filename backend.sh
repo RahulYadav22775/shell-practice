@@ -19,7 +19,7 @@ VALIDATE() {
         echo -e "$2..... is $G success $N " | tee -a $LOG_FILE
     fi
 }
-echo " script starts executing at : $date "
+echo " script starts executing at : $(date) "
 
 
 mkdir -p $LOG_FOLDER
