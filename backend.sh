@@ -85,5 +85,5 @@ else
     echo -e " mysql is already $G installed $N " |tee -a >>$LOG_FILE
 fi
 
-mysql -h 172.31.86.130 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
+mysql -h 172.31.86.58 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
 VALIDATE $? " adding of databases "
