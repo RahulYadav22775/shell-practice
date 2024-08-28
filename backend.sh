@@ -41,7 +41,7 @@ VALIDATE $? " nodejs disable is "
 dnf module enable nodejs:20 -y &>>$LOG_FILE
 VALIDATE $? "nodejs:20 enable "
 
-dnf install nodejs:20 -y &>>$LOG_FILE
+dnf install nodejs -y >>$LOG_FILE
 VALIDATE $? " nodejs installation "
 
 # userdel expense
