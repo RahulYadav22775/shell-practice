@@ -15,18 +15,21 @@ USERID=$(id -u)
 VALIDATE() {
      if [ $1 -ne 0 ]
     then 
-        echo  -e "$2..... is $R failed $N " | tee -a >>$LOG_FILE
+        echo  -e "$2..... is $R failed $N " | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$2..... is $G success $N " | tee -a >>$LOG_FILE
+        echo -e "$2..... is $G success $N " | tee -a $LOG_FILE
     fi
 }
+
+echo " script starts executing at : $date "
+
 
 mkdir -p $LOG_FOLDER
 
 if [ $USERID -ne 0 ]
 then 
-    echo  -e " you need $R root access permission $N to execute this script " |tee -a >>$LOG_FILE
+    echo  -e " you need $R root access permission $N to execute this script " |tee -a $LOG_FILE
     exit 1
 fi
 
@@ -34,11 +37,11 @@ fi
 dnf list installed mysql-server &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
-    echo  -e " mysql-server is $Y not installed....installing $N " |tee -a >>$LOG_FILE
+    echo  -e " mysql-server is $Y not installed....installing $N " |tee -a $LOG_FILE
     dnf install mysql-server -y
     VALIDATE $? "mysql server installation "
 else 
-    echo -e  " mysql server is already $G installed successfully $N "  |tee -a >>$LOG_FILE
+    echo -e  " mysql server is already $G installed successfully $N "  |tee -a $LOG_FILE
 
 fi
 
@@ -55,22 +58,22 @@ VALIDATE $? "mysql server status "
 dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
-    echo  -e " mysql is $R not installed....installing $N " |tee -a >>$LOG_FILE
+    echo  -e " mysql is $R not installed....installing $N " |tee -a $LOG_FILE
     dnf install mysql -y &>>$LOG_FILE
     VALIDATE $? "mysql  installation "
 else 
-    echo -e  " mysql  is already $G installed successfully $N " |tee -a >>$LOG_FILE
+    echo -e  " mysql  is already $G installed successfully $N " |tee -a $LOG_FILE
 
 fi
 
 mysql -h   172.31.86.58 -uroot -pExpenseAPP@1 -e "show databases;" &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
-   echo  -e " Password is not $Y not created...creating $N " |tee -a >>$LOG_FILE
+   echo  -e " Password is not $Y not created...creating $N " |tee -a $LOG_FILE
    mysql_secure_installation --set--root-pass ExpenseApp@1 &>>$LOG_FILE
    VALIDATE $? " password set up "
 else
-    echo -e " password is already setup $G successfully $N " |tee -a >>$LOG_FILE
+    echo -e " password is already setup $G successfully $N " |tee -a $LOG_FILE
 fi
 
 

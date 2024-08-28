@@ -15,18 +15,20 @@ USERID=$(id -u)
 VALIDATE() {
      if [ $1 -ne 0 ]
     then 
-        echo  -e "$2..... is $R failed $N " | tee -a >>$LOG_FILE
+        echo  -e "$2..... is $R failed $N " | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$2..... is $G success $N " | tee -a >>$LOG_FILE
+        echo -e "$2..... is $G success $N " | tee -a $LOG_FILE
     fi
-}
+}   
+
+echo " script starts executing at : $date "
 
 mkdir -p $LOG_FOLDER
 
 if [ $USERID -ne 0 ]
 then 
-    echo  -e " you need $R root access permission $N to execute this script " |tee -a >>$LOG_FILE
+    echo  -e " you need $R root access permission $N to execute this script " |tee -a $LOG_FILE
     exit 1
 fi
 
@@ -34,11 +36,11 @@ fi
 dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
-    echo -e " Nginx is not $Y installed...installing $N " |tee -a >>$LOG_FILE
+    echo -e " Nginx is not $Y installed...installing $N " |tee -a $LOG_FILE
      dnf install nginx -y &>>$LOG_FILE
      VALIDATE $? " nginx installation "
 else
-    echo -e " nginx is already $G installed $N " |tee -a >>$LOG_FILE
+    echo -e " nginx is already $G installed $N " |tee -a $LOG_FILE
 fi
 
 systemctl enable nginx &>>$LOG_FILE

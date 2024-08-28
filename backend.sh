@@ -13,18 +13,20 @@ USERID=$(id -u)
 VALIDATE() {
      if [ $1 -ne 0 ]
     then 
-        echo  -e "$2..... is $R failed $N " | tee -a >>$LOG_FILE
+        echo  -e "$2..... is $R failed $N " | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$2..... is $G success $N " | tee -a >>$LOG_FILE
+        echo -e "$2..... is $G success $N " | tee -a $LOG_FILE
     fi
 }
+echo " script starts executing at : $date "
+
 
 mkdir -p $LOG_FOLDER
 
 if [ $USERID -ne 0 ]
 then 
-    echo  -e " you need $R root access permission $N to execute this script " |tee -a >>$LOG_FILE
+    echo  -e " you need $R root access permission $N to execute this script " |tee -a $LOG_FILE
     exit 1
 fi
 
@@ -78,11 +80,11 @@ VALIDATE $? " bacakend service status "
 dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
-    echo -e " mysql is not $Y installed...installing $N " |tee -a >>$LOG_FILE
+    echo -e " mysql is not $Y installed...installing $N " |tee -a $LOG_FILE
      dnf install mysql -y &>>$LOG_FILE
      VALIDATE $? " mysql installation "
 else
-    echo -e " mysql is already $G installed $N " |tee -a >>$LOG_FILE
+    echo -e " mysql is already $G installed $N " |tee -a $LOG_FILE
 fi
 
 mysql -h 172.31.86.58 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
