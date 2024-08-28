@@ -66,11 +66,11 @@ fi
 mysql -h   172.31.86.58 -uroot -pExpenseAPP@1 -e "show databases;" &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
-   echo " Password is not $Y not created...creating $N " |tee -a >>$LOG_FILE
+   echo  -e " Password is not $Y not created...creating $N " |tee -a >>$LOG_FILE
    mysql_secure_installation --set--root-pass ExpenseApp@1 &>>$LOG_FILE
    VALIDATE $? " password set up "
 else
-    echo " password is already setup $G successfully $N " |tee -a >>$LOG_FILE
+    echo -e " password is already setup $G successfully $N " |tee -a >>$LOG_FILE
 fi
 
 
