@@ -1,4 +1,4 @@
-LOG_FOLDER="/var/log/shell-script"
+LOG_FOLDER="/var/log/expense"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE=$LOG_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log
@@ -45,8 +45,15 @@ dnf install nodejs -y &>>$LOG_FILE
 VALIDATE $? " nodejs installation "
 
 # userdel expense
- useradd expense &>>$LOG_FILE
- VALIDATE $? "useradd"
+id expense
+if [ $? -ne 0 ]
+then 
+    echo -e " $Y user expense $N do not exists " |tee -a $LOG_FILE
+    useradd expense &>>$LOG_FILE
+    VALIDATE $? "useradd"
+else
+    echo -e " $Y user expense $N already exists " |tee -a $LOG_FILE
+fi
 
 mkdir -p /app 
 
@@ -58,6 +65,7 @@ VALIDATE $? " download "
 cd /app
 VALIDATE $? "change directory" 
 
+rm -rf /app/*
 unzip /tmp/backend.zip
 
 npm install  &>>$LOG_FILE
@@ -87,5 +95,5 @@ else
     echo -e " mysql is already $G installed $N " |tee -a $LOG_FILE
 fi
 
-mysql -h 172.31.86.58 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
+mysql -h 172.31.89.73 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
 VALIDATE $? " adding of databases "
