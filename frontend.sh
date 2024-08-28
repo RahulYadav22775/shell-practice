@@ -22,13 +22,13 @@ VALIDATE() {
     fi
 }
 
-mkdir -p $LOG_FOLDER
-
 if [ $USERID -ne 0 ]
 then 
     echo  -e " you need $R root access permission $N to execute this script " |tee -a >>$LOG_FILE
     exit 1
 fi
+
+mkdir -p $LOG_FOLDER
 
 dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]
