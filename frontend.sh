@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_FOLDER="/var/log/nginx/shell-script"
+LOG_FOLDER="/var/log/nginx/expense"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE=$LOG_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log
@@ -52,8 +52,6 @@ VALIDATE $? " startig of "
 systemctl status nginx &>>$LOG_FILE
 VALIDATE $? " nginx status "
 
-rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
-VALIDATE $? " all files removal "
 
 cd /
 
@@ -63,9 +61,12 @@ VALIDATE $? " download "
 cd /usr/share/nginx/html &>>$LOG_FILE
 VALIDATE $? " changing directory "
 
- unzip /tmp/frontend.zip &>>$LOG_FILE
+rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
+VALIDATE $? " all files removal "
 
-cp /home/ec2-user/repos/shell-practice/fontend.conf /etc/nginx/default.d/frontend.conf &>>$LOG_FILE
+unzip /tmp/frontend.zip &>>$LOG_FILE
+
+cp /home/ec2-user/repos/shell-practice/expense.conf /etc/nginx/default.d/expense.conf &>>$LOG_FILE
 VALIDATE $? " copying files "
 
 systemctl restart nginx &>>$LOG_FILE
