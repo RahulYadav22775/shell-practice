@@ -63,7 +63,7 @@ else
 
 fi
 
-mysql -h <IP address> -uroot -pExpenseAPP@1 -e "show databases;" &>>$LOG_FILE
+mysql -h  172.31.86.130 -uroot -pExpenseAPP@1 -e "show databases;" &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
    echo " Password is not $Y not created...creating $N " |tee -a >>$LOG_FILE
