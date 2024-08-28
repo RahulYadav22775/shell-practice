@@ -87,8 +87,3 @@ fi
 
 mysql -h 172.31.86.130 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
 VALIDATE $? " adding of databases "
-
-
-
-show databases;
-
