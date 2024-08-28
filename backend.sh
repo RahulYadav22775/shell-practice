@@ -42,7 +42,7 @@ VALIDATE $? "nodejs:20 enable "
 dnf install nodejs -y &>>$LOG_FILE
 VALIDATE $? " nodejs installation "
 
-
+userdel expense
 useradd expense &>>$LOG_FILE
 VALIDATE $? "useradd"
 
