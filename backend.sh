@@ -75,9 +75,6 @@ VALIDATE $? " backend service starting "
 systemctl status backend &>>$LOG_FILE
 VALIDATE $? " bacakend service status "
 
-mysql -h  172.31.86.130 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
-VALIDATE $? " adding of databases "
-
 dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]
 then 
@@ -87,6 +84,11 @@ then
 else
     echo -e " mysql is already $G installed $N " |tee -a >>$LOG_FILE
 fi
+
+mysql -h 172.31.86.130 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
+VALIDATE $? " adding of databases "
+
+
 
 show databases;
 
