@@ -10,7 +10,11 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-set -e
+failure() {
+    echo " failed at :: $1 , $2 "
+}
+
+trap ' failure "${LINED}" "${BASH_COMMAND}"' ERR
 
 USAGE() {
        echo -e " USAGE ::: sh $0  <source-directory> <destination-directoy> <days (optional)> "
@@ -56,22 +60,22 @@ else
      
 fi
 
-find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
+# find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
-if [ -f $ZIP_FILE ]
-then 
-    echo -e " $ZIP_FILE is successfully created "
-else 
-    echo " $ZIP_FILE is not created "
-    exit 1
-fi
+# if [ -f $ZIP_FILE ]
+# then 
+#     echo -e " $ZIP_FILE is successfully created "
+# else 
+#     echo " $ZIP_FILE is not created "
+#     exit 1
+# fi
 
-while IFS= read -r file
-do 
-   echo " deleting file :: $file "
-   rm -rf $file
+# while IFS= read -r file
+# do 
+#    echo " deleting file :: $file "
+#    rm -rf $file
   
-done <<< $FILE
+# done <<< $FILE
 
 
 
