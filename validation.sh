@@ -3,14 +3,15 @@
 
 SOURCE_DIR=$1
 
-USAGE () {
-    echo " USAGE :: you need to provide arguments "
-    exit 1
+USAGE() {
+    echo " USAGE :: you need to provide arguments "  
+    exit 1  
 }
 
 if [ $@ -eq 0 ]
 then 
     USAGE
+    
 fi 
 
  if [ -d $SOURCE_DIR ] 
