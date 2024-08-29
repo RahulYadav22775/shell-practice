@@ -47,7 +47,7 @@ ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
 
 # echo "files are :: $FILE "
 
-if [ -z $FILE]
+if [ -z $FILE ]
 then 
     echo -e " file is  empty "
     exit 1
@@ -56,7 +56,7 @@ else
      
 fi
 
-$(echo $FILE | zip $ZIP_FILE -@)
+echo $FILE | zip "$ZIP_FILE" -@
 
 if [ -f $ZIP_FILE ]
 then 
