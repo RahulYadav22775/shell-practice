@@ -54,7 +54,6 @@ ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
 if [ ! -z $FILE ]
 then 
     echo -e " files are  found "
-   
 else 
     echo -e " files are not  found "
     exit 1
