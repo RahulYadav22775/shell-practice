@@ -26,11 +26,33 @@ if [ ! -d $SOURCE_DIR ]
 then 
     echo -e " $SOURCE_DIR does not exist "
     exit 1
+else 
+    echo -e "$SOURCE_DIR exists...."
 fi
 
 if [ ! -d $DEST_DIR ]
 then 
-    echo -e " $SDEST_DIR does not exist "
+    echo -e " $DEST_DIR does not exist "
     exit 1
+else 
+    echo -e "$DEST_DIR exists...."
 fi
+
+FILE=$(find $SOURCE_DIR -name "*.log" -mtime +$(DAYS))
+
+ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
+
+echo "files are :: $FILE "
+
+# if [ -z $FILE]
+# then 
+#     echo -e " file is  empty "
+#     exit 1
+# else 
+#     echo -e " files are found "
+     
+# fi
+
+
+
 
