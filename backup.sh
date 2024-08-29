@@ -43,16 +43,33 @@ FILE=$(find $SOURCE_DIR -name "*.log" -mtime +14 )
 
 ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
 
-echo "files are :: $FILE "
+# echo "files are :: $FILE "
 
-# if [ -z $FILE]
-# then 
-#     echo -e " file is  empty "
-#     exit 1
-# else 
-#     echo -e " files are found "
+if [ -z $FILE]
+then 
+    echo -e " file is  empty "
+    exit 1
+else 
+    echo -e " files are found "
      
-# fi
+fi
+
+echo $FILE | zip $ZIP_FILE -@
+
+if [ -f $ZIP_FILE ]
+then 
+    echo -e " $ZIP_FILE is successfully created "
+else 
+    echo " $ZIP_FILE is not created "
+    exit 1
+fi
+
+while IFS= read -r file
+do 
+   echo " deleting file :: $file "
+   rm -rf $file
+  
+done <<< $FILE
 
 
 
