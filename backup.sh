@@ -15,6 +15,7 @@ USAGE() {
        exit 1
 }
 
+echo "script started exexuted at :: $(date)"
 
 if [ $# -lt 2 ]
 then
