@@ -54,7 +54,7 @@ else
      
 fi
 
-echo $FILE | zip $ZIP_FILE -@
+$(echo $FILE | zip $ZIP_FILE -@)
 
 if [ -f $ZIP_FILE ]
 then 
