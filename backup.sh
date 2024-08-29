@@ -52,10 +52,10 @@ ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
 # echo "files are :: $FILE "
 
 if [ ! -z $FILE ]
-then 
-    echo -e " files are  found "
-else 
-    echo -e " files are not  found "
+then
+    echo " files are found"
+else  
+    echo "files are ot found"
     exit 1
 fi
 
