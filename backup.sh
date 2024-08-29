@@ -10,6 +10,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+set -ex
+
 USAGE() {
        echo -e " USAGE ::: sh $0  <source-directory> <destination-directoy> <days (optional)> "
        exit 1
