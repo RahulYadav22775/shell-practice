@@ -22,7 +22,7 @@ VALIDATE() {
     fi
 }   
 
-echo " script starts executing at : $date "
+echo " script starts executing at : $(date) "
 
 mkdir -p $LOG_FOLDER
 
@@ -58,11 +58,12 @@ cd /
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE
 VALIDATE $? " download "
 
-cd /usr/share/nginx/html &>>$LOG_FILE
-VALIDATE $? " changing directory "
-
 rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
 VALIDATE $? " all files removal "
+
+
+cd /usr/share/nginx/html &>>$LOG_FILE
+VALIDATE $? " changing directory "
 
 unzip /tmp/frontend.zip &>>$LOG_FILE
 
