@@ -69,20 +69,21 @@ fi
  fi
 
 
-# if [ -f $ZIP_FILE ]
-# then 
-#     echo -e " $ZIP_FILE is successfully created "
-# else 
-#     echo " $ZIP_FILE is not created "
-#     exit 1
-# fi
 
-# while IFS= read -r file
-# do 
-#    echo " deleting file :: $file "
-#    rm -rf $file
+if [ -f $ZIP_FILE ]
+then 
+    echo -e " $ZIP_FILE is successfully created "
+else 
+    echo " $ZIP_FILE is not created "
+    exit 1
+fi
+
+while IFS= read -r file
+do 
+   echo " deleting file :: $file "
+   rm -rf $file
   
-# done <<< $FILE
+done <<< $FILE
 
 
 
