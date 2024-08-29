@@ -28,7 +28,6 @@ then
     USAGE
 fi
 
-
 if [ ! -d $SOURCE_DIR ]
 then 
     echo -e " $SOURCE_DIR does not exist "
@@ -47,35 +46,22 @@ fi
 
 FILE=$(find $SOURCE_DIR -name "*.log" -mtime +14 )
 
-ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
-
- echo "files are :: $FILE "
-
 if [ -z $FILE ]
 then
     echo " files are not  found"
     exit 1
 else  
     echo "files are found"
-fi
+    ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
+    find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
- find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
-
- if [ $? -ne 0 ]
- then 
-     echo "previous command is failure"
- else
-     echo "[revious command is success]"
- fi
-
-
-
-if [ -f $ZIP_FILE ]
-then 
-    echo -e " $ZIP_FILE is successfully created "
-else 
-    echo " $ZIP_FILE is not created "
-    exit 1
+    if [ -f $ZIP_FILE ]
+    then 
+        echo -e " $ZIP_FILE is successfully created "
+    else 
+        echo " $ZIP_FILE is not created "
+        exit 1
+    fi
 fi
 
 while IFS= read -r file
