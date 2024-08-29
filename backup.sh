@@ -21,3 +21,16 @@ then
     USAGE
 fi
 
+
+if [ ! -d $SOURCE_DIR ]
+then 
+    echo -e " $SOURCE_DIR does not exist "
+    exit 1
+fi
+
+if [ ! -d $DEST_DIR ]
+then 
+    echo -e " $SDEST_DIR does not exist "
+    exit 1
+fi
+
