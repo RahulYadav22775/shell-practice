@@ -39,7 +39,7 @@ else
     echo -e "$DEST_DIR exists...."
 fi
 
-FILE=$(find $SOURCE_DIR -name "*.log" -mtime +$(DAYS))
+FILE=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 
 ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
 
