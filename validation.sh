@@ -26,8 +26,12 @@ fi
 
  FILES=$(find $SOURCE_DIR -name "*.log")
 
- for i in $FILES
- do
-    echo "print first file : $i "
- done
+#  for i in $FILES
+#  do
+#     echo "print  files : $i "
+#  done
 
+while IFS= read -r file
+do 
+   echo "print files :: $file "
+done <<<$FILES
