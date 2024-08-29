@@ -23,8 +23,10 @@ fi
      echo " $SOURCE_DIR  dosent exists "
      exit 1
  fi
-
- FILES=$(find $SOURCE_DIR -name "*.log")
+cd /home/ec2-user/logs
+FILES=$(find $SOURCE_DIR -name "*.log" )
+ 
+ LIST=$( ls -ltr)
 
 #  for i in $FILES
 #  do
@@ -34,4 +36,5 @@ fi
 while IFS= read -r file
 do 
    echo "print files :: $file "
+   rm -rf $file
 done <<<$FILES
