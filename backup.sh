@@ -59,7 +59,15 @@ else
     echo "files are found"
 fi
 
-# find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
+ find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
+
+ if [ $? -ne 0 ]
+ then 
+     echo "previous command is failure"
+ else
+     echo "[revious command is success]"
+ fi
+
 
 # if [ -f $ZIP_FILE ]
 # then 
