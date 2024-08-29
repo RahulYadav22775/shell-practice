@@ -1,13 +1,12 @@
 #!/bin/bash
 
 
-failure() {
-    echo " failed at : $1 :: $2 "
-}
+SOURCE_DIR="home/ec2-user/logs"
 
-trap 'failure ${LINED} ${BASH_COMMAND}' ERR
-
-echo "hello"
-echo "hi"
-echh "hw r u"
-echo "i am gud "
+ if [ -d $SOURCE_DIR ] 
+ then
+     echo " $SOURCE_DIR exists .you can continue "
+ else 
+     echo " $SOURCE_DIR  dosent exists "
+     exit 1
+ fi
