@@ -3,6 +3,8 @@
 
 SOURCE_DIR=$1
 
+
+
  if [ -d $SOURCE_DIR ] 
  then
      echo " $SOURCE_DIR exists .you can continue "
