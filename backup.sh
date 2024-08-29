@@ -49,15 +49,16 @@ FILE=$(find $SOURCE_DIR -name "*.log" -mtime +14 )
 
 ZIP_FILE="$DEST_DIR/app-data-${TIMESTAMP}.zip"
 
-# echo "files are :: $FILE "
+ echo "files are :: $FILE "
 
-if [ ! -z $FILE ]
-then
-    echo " files are found"
-else  
-    echo "files are ot found"
-    exit 1
-fi
+# if [ -z $FILE ]
+# then
+#     echo " files are not  found"
+#     exit 1
+# else  
+#     echo "files are found"
+    
+# fi
 
 # find $SOURCE_DIR -name "*.log" -mtime +14 | zip "$ZIP_FILE" -@
 
