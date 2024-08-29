@@ -3,6 +3,8 @@
 
 SOURCE_DIR=$1
 
+echo "script executed at :: $(date) "
+
 USAGE() {
     echo " USAGE :: you need to provide arguments "  
     exit 1  
@@ -21,3 +23,11 @@ fi
      echo " $SOURCE_DIR  dosent exists "
      exit 1
  fi
+
+ FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+
+ for i in $FILES
+ do
+    echo "print first file : $i "
+ done
+
