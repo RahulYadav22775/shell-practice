@@ -29,9 +29,14 @@ read WORD
 COUNT=$(uniq -c $FILE) 
 echo " $WORD COUNT IS :: $COUNT "
 
-wc -l $FILE
+# wc -l $FILE
 
+OCCURENCES=$(grep $WORD $FILE)
+
+echo " $WORD occurences  in the file  ::::: $OCCURENCES "
+
+REPEAT=$($OCCURENCES | wc -l)
+echo " number of times $WORD repeated :: $REPEAT "
  
-echo " $WORD occurences  in the file "
-grep $WORD $FILE
+
 
