@@ -5,7 +5,7 @@ echo " enter the file name : "
 
 read FILE
 
-if [-f $FILE ]
+if [ -f $FILE ]
 then 
     echo "$FILE exists you can continue " 
 else 
