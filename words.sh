@@ -17,17 +17,25 @@ echo " enter the word you want to count "
 
 read WORD
 
-COUNT=$(uniq -c $FILE) 
-echo " $WORD COUNT IS :: $COUNT "
 
-# wc -l $FILE
+
+LINES=$(wc -l $FILE)
+echo " number of lines   in the file  ::::: $LINES "
+
 
 OCCURENCES=$(grep $WORD $FILE)
-
 echo " $WORD occurences  in the file  ::::: $OCCURENCES "
 
-REPEAT=$(echo $OCCURENCES | wc -l)
-echo " number of times $WORD repeated :: $REPEAT "
+CHAR=$(WC -C $FILE)
+echo " number of characters   in the file  ::::: $CHAR "
+
+REV=$(sort -r $FILE)
+echo " reverse order of  the file  ::::: $REV "
+
+WC=$(wc -w $FILE)
+echo " word count  of  the file  ::::: $WC "
+
+
  
 
 
