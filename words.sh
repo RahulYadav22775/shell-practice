@@ -26,7 +26,7 @@ OCCURENCES=$(grep $WORD $FILE)
 
 echo " $WORD occurences  in the file  ::::: $OCCURENCES "
 
-REPEAT=$($OCCURENCES | wc -l)
+REPEAT=$(echo $OCCURENCES | wc -l)
 echo " number of times $WORD repeated :: $REPEAT "
  
 
