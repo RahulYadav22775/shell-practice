@@ -26,7 +26,7 @@ echo " number of lines   in the file  ::::: $LINES "
 OCCURENCES=$(grep $WORD $FILE)
 echo " $WORD occurences  in the file  ::::: $OCCURENCES "
 
-CHAR=$(WC -C $FILE)
+CHAR=$(wc -C $FILE)
 echo " number of characters   in the file  ::::: $CHAR "
 
 REV=$(sort -r $FILE)
