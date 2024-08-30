@@ -14,23 +14,22 @@ echo " enter the file name : "
 
 read FILE
 
-echo " enter the word you want to count "
-
-read WORD
-
-# if [ -f $FILE ]
-# then 
-#     echo "word  in the file "
-#     grep $WORD $FILE
-# else 
-#     echo " file does not exist "
-#     exit 1
-# fi
-
 if [ -f $FILE ]
 then 
-    uniq -c $FILE
+    echo "$FILE exists you can continue " 
 else 
     echo " file does not exist "
     exit 1
 fi
+
+echo " enter the word you want to count "
+
+read WORD
+
+COUNT=$(uniq -c $FILE) 
+echo " $FILE COUNT IS :: $COUNT "
+
+ 
+echo " $WORD occurences  in the file "
+grep $WORD $FILE
+
