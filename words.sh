@@ -29,6 +29,8 @@ read WORD
 COUNT=$(uniq -c $FILE) 
 echo " $WORD COUNT IS :: $COUNT "
 
+wc -l $FILE
+
  
 echo " $WORD occurences  in the file "
 grep $WORD $FILE
