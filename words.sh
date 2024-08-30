@@ -27,7 +27,7 @@ echo " enter the word you want to count "
 read WORD
 
 COUNT=$(uniq -c $FILE) 
-echo " $FILE COUNT IS :: $COUNT "
+echo " $WORD COUNT IS :: $COUNT "
 
  
 echo " $WORD occurences  in the file "
