@@ -1,14 +1,14 @@
 #!/bin/bash
 
-USAGE() {
-     echo " you are not a root user to execute this script "
-     exit 1
-}
+# USAGE() {
+#      echo " you are not a root user to execute this script "
+#      exit 1
+# }
 
-if [ $# -eq 0 ]
-then 
-    USAGE
-fi
+# if [ $# -eq 0 ]
+# then 
+#     USAGE
+# fi
 
 echo " enter the file name : "
 
