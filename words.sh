@@ -30,7 +30,9 @@ REPEAT=$(grep -c $WORD $FILE)
 echo "number of times the word  $WORD repeated ::: $REPEAT "
 
 COUNT=$(grep -o $WORD $FILE)
-echo "number of times the word  $WORD repeated ::: $COUNT"
+NUMBER=$(grep -o $WORD $FILE | wc -l)
+echo "number of times the word  $WORD repeated ::: $COUNT
+       number ::: $NUMBER"
 
 
 
