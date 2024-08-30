@@ -29,14 +29,20 @@ echo " $WORD occurences  in the file  ::::: $OCCURENCES "
 REPEAT=$(grep -c $WORD $FILE)
 echo "number of times the word  $WORD repeated ::: $REPEAT "
 
-CHAR=$(wc -c $FILE)
-echo " number of characters   in the file  ::::: $CHAR "
+COUNT=$(grep -o $WORD $FILE)
+echo "number of times the word  $WORD repeated ::: $COUNT"
 
-REV=$(sort -r $FILE)
-echo " reverse order of  the file  ::::: $REV "
 
-WC=$(wc -w $FILE)
-echo " word count  of  the file  ::::: $WC "
+
+
+# CHAR=$(wc -c $FILE)
+# echo " number of characters   in the file  ::::: $CHAR "
+
+# REV=$(sort -r $FILE)
+# echo " reverse order of  the file  ::::: $REV "
+
+# WC=$(wc -w $FILE)
+# echo " word count  of  the file  ::::: $WC "
 
 
  
