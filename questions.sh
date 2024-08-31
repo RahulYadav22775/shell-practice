@@ -15,8 +15,8 @@ done
 
 a=missisippi
 
-result=$(grep -o "s">>"$a" | wc -l)
-echo "numbe rof occurences is :: $result "
+result=$(grep -o "s" <<< "$a" | wc -l)
+echo "number of occurences is :: $result "
 
 # open a file in read only mode
 # vim -r <file-name>
