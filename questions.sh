@@ -4,10 +4,10 @@
 
 for i in {1..100}
 do
-if ([ 'expr $i % 3' == 0 ] || [ 'expr $i % 5' == 0 ]) && [ 'expr $i % 15' != 0 ]
-then
-   echo $i
-fi
+  if ([ 'expr $i % 3' == 0 ] || [ 'expr $i % 5' == 0 ]) && [ 'expr $i % 15' != 0 ]
+  then
+      echo $i
+  fi
 done
 
 
@@ -15,7 +15,7 @@ done
 
 a=missisippi
 
-result=$(grep -o "s">>>"$a" | wc -l)
+result=$(grep -o "s">>"$a" | wc -l)
 echo "numbe rof occurences is :: $result "
 
 # open a file in read only mode
@@ -69,4 +69,4 @@ echo "numbe rof occurences is :: $result "
 # Find command: The FIND command searches for files and folders based on the requirement
 # Grep command: This command facilitates searching and displaying particular thing  which is required
 
-Pipe command : pipe command allows to join several commands. here output of the previous command will act as input for the next command
+# Pipe command : pipe command allows to join several commands. here output of the previous command will act as input for the next command
