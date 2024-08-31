@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -ex
-LIST=("man" "bear" "pig" "dog" "cat" "sheep”)
-echo " print all the words :: ${LIST[@]} "
+LIST=("man" "women" "cow" "birds")
 
-
-
+echo "print all the list :: ${LIST[@]} "
