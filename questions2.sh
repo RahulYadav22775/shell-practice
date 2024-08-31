@@ -1,5 +1,7 @@
 #!/bin/bash
 
 LIST=("man" "women" "cow" "birds")
-
-echo "print all the list :: ${LIST[@]} "
+for i in ${LIST[@]}
+do 
+     echo $i
+done
