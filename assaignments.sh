@@ -14,6 +14,6 @@ fi
 
 if [ -d $DIR_NAME ]
 then 
-    find $DIR_NAME -name "*.txt"  -exec sed -i 's/gopi/ravi/g' {};
+    find $DIR_NAME -name "*.txt"  -exec sed -i 's/gopi/ravi/g' {} \;
 
 fi
