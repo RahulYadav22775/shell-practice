@@ -14,7 +14,7 @@ fi
 
 COUNT=$(cat $FILE_NAME | wc -w) 
 
-wordcount=$(cat $FILE_NAME | uniq -c)
+wordcount=$(cat $FILE_NAME | grep $2)
 echo "each word count is :::: $wordcount "
 # for i in {1..$COUNT}
 # do
