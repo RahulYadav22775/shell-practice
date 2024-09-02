@@ -16,7 +16,7 @@ echo " word count ::: $COUNT "
 
 for i in {1..$COUNT}
 do
-  word=$(cat $FILE_NAME | cut -d " " -f${i})
+  word=$(cat $FILE_NAME | cut -d " " -f$i)
   WORD_COUNT=$(grep -o $word $FILE_NAME | wc -l)
 
   if [ $WORD_COUNT -ne 0 ]
