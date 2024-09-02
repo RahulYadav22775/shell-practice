@@ -16,6 +16,5 @@ fi
 if [ -d $DIR_NAME ]
 then 
     find $DIR_NAME -name "*.txt" exec  sed -i 's/$2/$3/g'
-else
 fi
 
