@@ -14,15 +14,17 @@ fi
 
 COUNT=$(cat $FILE_NAME | wc -w) 
 
-for i in {1..$COUNT}
-do
+wordcount=$(cat $FILE_NAME | uniq -c)
+echo "each word count is :::: $wordcount "
+# for i in {1..$COUNT}
+# do
   
-  WORD_COUNT=$(cat $FILE_NAME | grep -i $WORD | wc -l)
-  echo " word count of $WORD is :::: $WORD_COUNT "
+#   WORD_COUNT=$(cat $FILE_NAME | grep -i $WORD | wc -l)
+#   echo " word count of $WORD is :::: $WORD_COUNT "
 
-#   if [ $WORD_COUNT -ne 0 ]
-#   then
-#       echo "the count of the word $word in the file $FILE_NAME is ::: $WORD_COUNT "
-#   fi
+# #   if [ $WORD_COUNT -ne 0 ]
+# #   then
+# #       echo "the count of the word $word in the file $FILE_NAME is ::: $WORD_COUNT "
+# #   fi
 
-done
+# done
