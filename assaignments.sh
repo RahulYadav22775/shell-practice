@@ -12,6 +12,7 @@ then
 fi
 
 COUNT=$(cat $FILE_NAME | wc -w)
+echo " word count ::: $COUNT " 
 
 # for i in {1..$COUNT}
 # do
