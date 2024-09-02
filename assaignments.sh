@@ -1,6 +1,7 @@
 #!/bin/bash
-FILE_NAME=$1
-WORD=$2
+DIR_NAME=$1
+WORD1=$2
+WORD2=$3
 
 USAGE() {
     echo " USAGE:: $0 <FILE-NAME>"
@@ -12,20 +13,9 @@ then
     USAGE
 fi
 
-COUNT=$(cat $FILE_NAME | wc -w) 
+if [ -d $DIR_NAME ]
+then 
+    find $DIR_NAME -name "*.txt" exec  sed -i 's/$2/$3/g'
+else
+fi
 
-# wordcount=$(cat $FILE_NAME | grep $2 |wc -l)
-# echo "each word count is :::: $wordcount "
-sub=$(sed -i 's/usa/england/' $FILE_NAME)
-# for i in {1..$COUNT}
-# do
-  
-#   WORD_COUNT=$(cat $FILE_NAME | grep -i $WORD | wc -l)
-#   echo " word count of $WORD is :::: $WORD_COUNT "
-
-# #   if [ $WORD_COUNT -ne 0 ]
-# #   then
-# #       echo "the count of the word $word in the file $FILE_NAME is ::: $WORD_COUNT "
-# #   fi
-
-# done
