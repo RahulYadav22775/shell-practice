@@ -22,7 +22,7 @@ VALIDATE() {
     fi
 }
 
-echo " script starts executing at : $date "
+echo " script starts executing at : $(date) "
 
 
 mkdir -p $LOG_FOLDER

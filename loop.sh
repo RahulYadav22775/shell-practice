@@ -17,24 +17,11 @@ fi
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
-        echo " $R $2 installation failed $N "
+        echo -e " $R $2 installation failed $N "
     else
-        echo " $G $2 is installed $N "
+        echo -e " $G $2 is installed $N "
     fi
 }
-
-# dnf list installed mysql
-
-# if [ $? -ne 0 ]
-# then 
-#     echo " $Y mysql is not installed...instsllig $N "
-
-#     dnf install mysql
-
-#      VALIDATE $? "mysql"
-# else
-#     echo " $Y mysql is alraedy installed $N "
-# fi
 
 for i in $@
 do 

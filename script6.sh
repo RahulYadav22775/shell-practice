@@ -68,3 +68,4 @@ else
     echo -e " $G nginx is installed $N "
     exit 1
 fi
+
