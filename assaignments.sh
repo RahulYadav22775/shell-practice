@@ -12,8 +12,14 @@ then
     USAGE
 fi
 
+# if [ -d $DIR_NAME ]
+# then 
+#     find $DIR_NAME -name "*.txt"  -exec sed -i 's/gopi/ravi/g' {} \;
+
+# fi
+
 if [ -d $DIR_NAME ]
 then 
-    find $DIR_NAME -name "*.txt"  -exec sed -i 's/gopi/ravi/g' {} \;
+    sed -i 's/gopi/ravi/g' /home/ec2-user/*.txt
 
 fi
