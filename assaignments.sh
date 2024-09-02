@@ -16,7 +16,7 @@ COUNT=$(cat $FILE_NAME | wc -w)
 
 # wordcount=$(cat $FILE_NAME | grep $2 |wc -l)
 # echo "each word count is :::: $wordcount "
-sub=$(sed -i 's/usa/england $FILE_NAME)
+sub=$(sed -i 's/usa/england/' $FILE_NAME)
 # for i in {1..$COUNT}
 # do
   
