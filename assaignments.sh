@@ -17,7 +17,7 @@ echo " word count ::: $COUNT "
 for i in {1..$COUNT}
 do
   word=$(cat $FILE_NAME | awk -F " " '{print $i}')
-  WORD_COUNT=$(grep -o $word $FILE_NAME | wc -l)
+  WORD_COUNT=$(cat $FILE_NAME | grep $word | wc -l)
 
   if [ $WORD_COUNT -ne 0 ]
   then
