@@ -1,7 +1,7 @@
 #!/bin/bash
 DIR_NAME=$1
 word1=$2
-# word2=$3
+word2=$3
 
 
 USAGE() {
