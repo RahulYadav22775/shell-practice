@@ -33,11 +33,11 @@ fi
 
 for FILE in $DIR_NAME/*.txt
 do
-    grep $WORD1 $FILE
+    grep "$WORD1" $FILE
 
     if [ $? -eq 0 ] 
     then
-        sed -i 's/${WORD1}/${WORD2}/g' $FILE
+        sed -i "s/$WORD1/$WORD2/g" $FILE
 
         if [ $? -eq 0 ]
         then
