@@ -7,6 +7,8 @@ USAGE() {
     exit 1
 }
 
+# replacing  a word with another in all strigs
+
 if [ $# -eq 0 ]
 then 
     USAGE
