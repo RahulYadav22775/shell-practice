@@ -1,7 +1,6 @@
 #!/bin/bash
 
 FILE_NAME=$1
-Search_word=$2
 
 R="\e[31m"
 G="\e[32m"
@@ -15,7 +14,7 @@ USAGE() {
       exit 1
 }
 
-if [ $# -ne 2 ]
+if [ $# -ne 1 ]
 then
     USAGE
 fi
@@ -28,4 +27,5 @@ else
     echo "the file  $FILE_NAME exist"
 fi
 
-awk '{for (i=1; i<=NF; i++) words[$i]++ } END { for (word in words) print word, words[word]}' $FILE_NAME
+awk '{for (i=1; i<=NF; i++) words[$i]++ } END { for (word in words) print word, words[word]}' $FILE_NAME | 
+sort -k2,2nr -k1,1 | awk '$2 > 1 { print }'
