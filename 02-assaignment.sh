@@ -35,7 +35,8 @@ do
     grep $2 $FILE
     if [ $? -eq 0 ] 
     then
-        sed -i 's/"${WORD1}"/"${WORD2}"/g' $FILE
+        sed -i 's/${WORD1}/${WORD2}/g' $FILE
+
         if [ $? -eq 0 ]
         then
             echo " $WORD1 is found in $FILE is successfully replaced with $WORD2 " 
