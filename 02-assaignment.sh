@@ -29,15 +29,13 @@ else
     exit 1 
 fi
 
-LIST_FILES=$(ls -l $DIR_NAME)
-echo "list of files :::: $LIST_FILES "
 
-for FILE in $LIST_FILES
+for FILE in $DIR_NAME/*.txt
 do
-    grep $2 $file
+    grep $2 $FILE
     if [ $? -eq 0 ] 
     then
-        sed -i 's/$WORD1/$WORD2/g' $FILE
+        sed -i 's/"${WORD1}"/"${WORD2}"/g' $FILE
         if [ $? -eq 0 ]
         then
             echo " $WORD1 is found in $FILE is successfully replaced with $WORD2 " 
