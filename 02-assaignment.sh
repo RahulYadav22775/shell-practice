@@ -21,6 +21,7 @@ fi
 #     find $DIR_NAME -name "*.txt"  -exec sed -i 's/gopi/ravi/g' {} \;
 
 # fi
+
 if [ -d $DIR_NAME ]
 then 
     echo " the directory $DIR_NAME exists"
